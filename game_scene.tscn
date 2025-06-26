@@ -1,0 +1,132 @@
+[gd_scene load_steps=19 format=3 uid="uid://booefivacmbno"]
+
+[ext_resource type="Script" uid="uid://mepkc66j8i3m" path="res://character_body_2d.gd" id="1_mixcd"]
+[ext_resource type="Texture2D" uid="uid://dkabemfyxv0uv" path="res://sprites/Crust Carl idle animatiom.png" id="1_po0ka"]
+[ext_resource type="Texture2D" uid="uid://cvg8a4yr128sa" path="res://sprites/Crust Carl running animation 128x128.png" id="3_mixcd"]
+[ext_resource type="Texture2D" uid="uid://cn3hkm85iuyhw" path="res://sprites/icon.svg" id="4_mj2jn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj2jn"]
+atlas = ExtResource("1_po0ka")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdryc"]
+atlas = ExtResource("1_po0ka")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e45b"]
+atlas = ExtResource("1_po0ka")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e35lh"]
+atlas = ExtResource("1_po0ka")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udeyl"]
+atlas = ExtResource("3_mixcd")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_miq82"]
+atlas = ExtResource("3_mixcd")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5hk1"]
+atlas = ExtResource("3_mixcd")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ueiaa"]
+atlas = ExtResource("3_mixcd")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_daj04"]
+atlas = ExtResource("3_mixcd")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlphb"]
+atlas = ExtResource("3_mixcd")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opqoc"]
+atlas = ExtResource("3_mixcd")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mlphb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj2jn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdryc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e45b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e35lh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udeyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_miq82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5hk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ueiaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_daj04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlphb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opqoc")
+}],
+"loop": true,
+"name": &"run",
+"speed": 15.0
+}]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kdryc"]
+texture = ExtResource("4_mj2jn")
+texture_region_size = Vector2i(64, 64)
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6e45b"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_kdryc")
+
+[node name="Game scene" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(595, 330)
+script = ExtResource("1_mixcd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(4.76837e-06, -5.72205e-06)
+scale = Vector2(0.951823, 0.951823)
+sprite_frames = SubResource("SpriteFrames_mlphb")
+animation = &"run"
+autoplay = "idle"
+frame_progress = 0.754979
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+polygon = PackedVector2Array(19, -1, 27, 10, 30, 22, 30, 26, 26, 30, 20, 30, 16, 26, 16, 19, 11, 19, 8, 30, 11, 39, 20, 61, 21, 63, 3, 63, 1, 58, 5, 55, 2, 45, -5, 44, -12, 54, -6, 63, -25, 63, -25, 58, -12, 32, -18, 14, -25, 30, -31, 29, -36, 19, -25, -3, -39, -45, -24, -54, 15, -54, 30, -48, 29, -36)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(2, 2)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-1, 0)
+tile_map_data = PackedByteArray(0, 0, 5, 0, 7, 0, 2, 0, 0, 0, 0, 0, 0, 0, 7, 0, 7, 0, 2, 0, 0, 0, 0, 0, 0, 0, 9, 0, 7, 0, 2, 0, 0, 0, 0, 0, 0, 0, 11, 0, 7, 0, 2, 0, 0, 0, 0, 0, 0, 0, 13, 0, 7, 0, 2, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_6e45b")
