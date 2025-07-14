@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://4q45h566xca7"]
+
+[ext_resource type="FontFile" uid="uid://d37u7onymwm7a" path="res://sprites/Asap_SemiExpanded-Bold.ttf" id="1_vu4dg"]
+[ext_resource type="Script" uid="uid://cyi4im75mhars" path="res://scripts/start_screen.gd" id="1_ypiyu"]
+[ext_resource type="FontFile" uid="uid://lbomj3hob8b6" path="res://sprites/SourGummy-VariableFont_wdth,wght.ttf" id="2_ypiyu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vu4dg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vu4dg"]
+bg_color = Color(0.670689, 0.67069, 0.670689, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_size = 5
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypiyu"]
+bg_color = Color(0.342207, 0.342207, 0.342207, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_size = 5
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ai107"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_size = 5
+shadow_offset = Vector2(0, 1)
+
+[node name="start screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ypiyu")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.0
+offset_top = 23.0
+offset_right = 253.0
+offset_bottom = 199.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_vu4dg")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vu4dg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vu4dg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ypiyu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ai107")
+text = "Start"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -311.5
+offset_top = -187.0
+offset_right = 311.5
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ypiyu")
+theme_override_font_sizes/font_size = 100
+text = "CRUST QUEST"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
