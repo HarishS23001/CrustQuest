@@ -1,10 +1,13 @@
-[gd_scene load_steps=25 format=4 uid="uid://booefivacmbno"]
+[gd_scene load_steps=37 format=4 uid="uid://booefivacmbno"]
 
 [ext_resource type="Script" uid="uid://mepkc66j8i3m" path="res://scripts/character_body_2d.gd" id="1_bw6k5"]
 [ext_resource type="Texture2D" uid="uid://dkabemfyxv0uv" path="res://sprites/Crust Carl idle animatiom.png" id="2_y3j0m"]
 [ext_resource type="Texture2D" uid="uid://bt3u3t8dwqc7l" path="res://sprites/Crust Carl Jump animation.png" id="3_y3j0m"]
 [ext_resource type="Texture2D" uid="uid://cn3hkm85iuyhw" path="res://sprites/icon.svg" id="4_kk2rg"]
 [ext_resource type="Texture2D" uid="uid://b1x2jcgn1l1xk" path="res://sprites/Crust Carl TRUE running animation.png" id="4_y3j0m"]
+[ext_resource type="Script" uid="uid://boiiii7uruttk" path="res://scripts/enemy.gd" id="6_b5spy"]
+[ext_resource type="Texture2D" uid="uid://tcortfa21xrn" path="res://sprites/ketchup monster idle.png" id="7_utbpp"]
+[ext_resource type="Texture2D" uid="uid://cusswtlnmve6x" path="res://sprites/ketchup monster walk.png" id="8_mw25s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdryc"]
 atlas = ExtResource("2_y3j0m")
@@ -148,10 +151,79 @@ tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_kdryc")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_s76x2"]
+atlas = ExtResource("7_utbpp")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77hjl"]
+atlas = ExtResource("7_utbpp")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6aqbo"]
+atlas = ExtResource("7_utbpp")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro0ie"]
+atlas = ExtResource("7_utbpp")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_103ce"]
+atlas = ExtResource("8_mw25s")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb36m"]
+atlas = ExtResource("8_mw25s")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85lt4"]
+atlas = ExtResource("8_mw25s")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgstd"]
+atlas = ExtResource("8_mw25s")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ttvoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s76x2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77hjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6aqbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro0ie")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_103ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pb36m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85lt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgstd")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
 [node name="Game scene" type="Node2D"]
 
 [node name="Crust Carl" type="CharacterBody2D" parent="."]
-position = Vector2(586, 292)
+position = Vector2(200, 250)
 script = ExtResource("1_bw6k5")
 metadata/_edit_group_ = true
 
@@ -173,3 +245,20 @@ polygon = PackedVector2Array(19, -1, 27, 10, 30, 22, 30, 26, 26, 30, 20, 30, 16,
 position = Vector2(-1, 0)
 tile_map_data = PackedByteArray("AAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAAFAAMAAgAAAAAAAAAGAAMAAgAAAAAAAAAHAAMAAgAAAAAAAAAIAAMAAgAAAAAAAAABAAMAAgAAAAAAAAAKAAUAAgAAAAAAAAALAAUAAgAAAAAAAAAMAAUAAgAAAAAAAAANAAUAAgAAAAAAAAAOAAUAAgAAAAAAAAAPAAUAAgAAAAAAAAAQAAUAAgAAAAAAAAARAAUAAgAAAAAAAAAUAAQAAgAAAAAAAAAVAAQAAgAAAAAAAAAWAAQAAgAAAAAAAAAXAAQAAgAAAAAAAAAYAAQAAgAAAAAAAAAbAAcAAgAAAAAAAAAcAAcAAgAAAAAAAAAeAAcAAgAAAAAAAAAfAAcAAgAAAAAAAAD//wcAAgAAAAAAAAD+/wcAAgAAAAAAAAD9/wcAAgAAAAAAAAD8/wcAAgAAAAAAAAAhAAcAAgAAAAAAAAAgAAcAAgAAAAAAAAAdAAcAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_6e45b")
+
+[node name="enemy" type="CharacterBody2D" parent="."]
+script = ExtResource("6_b5spy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemy"]
+sprite_frames = SubResource("SpriteFrames_ttvoq")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.151468
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="enemy"]
+polygon = PackedVector2Array(-7, 71, -9, 129, -44, 124, -33, 78, -47, 64, -50, 19, -67, 12, -50, -41, -36, -85, -2, -114, 31, -87, 49, -44, 64, 11, 50, 16, 48, 69, 32, 71, 44, 114, 33, 126, 10, 124, 9, 72)
+
+[node name="Area2D" type="Area2D" parent="enemy"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="enemy/Area2D"]
+polygon = PackedVector2Array(11, 75, 9, 123, 41, 124, 33, 69, 47, 69, 50, 14, 63, 9, 32, -88, -2, -114, -36, -88, -65, 10, -51, 17, -48, 64, -34, 77, -45, 118, -11, 126, -9, 70)
