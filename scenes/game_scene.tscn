@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://booefivacmbno"]
+[gd_scene load_steps=48 format=4 uid="uid://booefivacmbno"]
 
 [ext_resource type="Script" uid="uid://mepkc66j8i3m" path="res://scripts/character_body_2d.gd" id="1_bw6k5"]
 [ext_resource type="Texture2D" uid="uid://dkabemfyxv0uv" path="res://sprites/Crust Carl idle animatiom.png" id="2_y3j0m"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://boiiii7uruttk" path="res://scripts/enemy.gd" id="6_b5spy"]
 [ext_resource type="Texture2D" uid="uid://tcortfa21xrn" path="res://sprites/ketchup monster idle.png" id="7_utbpp"]
 [ext_resource type="Texture2D" uid="uid://cusswtlnmve6x" path="res://sprites/ketchup monster walk.png" id="8_mw25s"]
+[ext_resource type="Script" uid="uid://b2p2rr5bpis6a" path="res://scripts/blade_enemy.gd" id="9_mw25s"]
+[ext_resource type="Texture2D" uid="uid://chlm2bn53ifyy" path="res://sprites/blade monster idle.png" id="10_tcjrq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdryc"]
 atlas = ExtResource("2_y3j0m")
@@ -220,6 +222,54 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utbpp"]
+size = Vector2(85, 203)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5spy"]
+size = Vector2(136, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttvoq"]
+atlas = ExtResource("10_tcjrq")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rw4oa"]
+atlas = ExtResource("10_tcjrq")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r47aq"]
+atlas = ExtResource("10_tcjrq")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6irsn"]
+atlas = ExtResource("10_tcjrq")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gqftm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttvoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rw4oa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r47aq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6irsn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dk4p"]
+size = Vector2(110, 187)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpk3j"]
+size = Vector2(119, 247)
+
 [node name="Game scene" type="Node2D"]
 
 [node name="Crust Carl" type="CharacterBody2D" parent="."]
@@ -240,25 +290,50 @@ scale = Vector2(1.36483, 1.37471)
 polygon = PackedVector2Array(19, -1, 27, 10, 30, 22, 30, 26, 26, 30, 20, 30, 16, 26, 16, 19, 11, 19, 8, 30, 11, 39, 20, 61, 21, 63, 3, 63, 1, 58, 5, 55, 2, 45, -5, 44, -12, 54, -6, 63, -25, 63, -25, 58, -12, 32, -18, 14, -25, 30, -31, 29, -36, 19, -25, -3, -39, -45, -24.1788, -53.8487, 15, -54, 30, -48, 29, -36)
 
 [node name="Camera2D" type="Camera2D" parent="Crust Carl"]
+zoom = Vector2(0.7, 0.7)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-1, 0)
 tile_map_data = PackedByteArray("AAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAAFAAMAAgAAAAAAAAAGAAMAAgAAAAAAAAAHAAMAAgAAAAAAAAAIAAMAAgAAAAAAAAABAAMAAgAAAAAAAAAKAAUAAgAAAAAAAAALAAUAAgAAAAAAAAAMAAUAAgAAAAAAAAANAAUAAgAAAAAAAAAOAAUAAgAAAAAAAAAPAAUAAgAAAAAAAAAQAAUAAgAAAAAAAAARAAUAAgAAAAAAAAAUAAQAAgAAAAAAAAAVAAQAAgAAAAAAAAAWAAQAAgAAAAAAAAAXAAQAAgAAAAAAAAAYAAQAAgAAAAAAAAAbAAcAAgAAAAAAAAAcAAcAAgAAAAAAAAAeAAcAAgAAAAAAAAAfAAcAAgAAAAAAAAD//wcAAgAAAAAAAAD+/wcAAgAAAAAAAAD9/wcAAgAAAAAAAAD8/wcAAgAAAAAAAAAhAAcAAgAAAAAAAAAgAAcAAgAAAAAAAAAdAAcAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_6e45b")
 
-[node name="enemy" type="CharacterBody2D" parent="."]
+[node name="ketchup enemy" type="CharacterBody2D" parent="."]
+position = Vector2(1640, 511)
 script = ExtResource("6_b5spy")
+metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemy"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ketchup enemy"]
 sprite_frames = SubResource("SpriteFrames_ttvoq")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.151468
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="enemy"]
-polygon = PackedVector2Array(-7, 71, -9, 129, -44, 124, -33, 78, -47, 64, -50, 19, -67, 12, -50, -41, -36, -85, -2, -114, 31, -87, 49, -44, 64, 11, 50, 16, 48, 69, 32, 71, 44, 114, 33, 126, 10, 124, 9, 72)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ketchup enemy"]
+position = Vector2(0.5, 23.5)
+shape = SubResource("RectangleShape2D_utbpp")
 
-[node name="Area2D" type="Area2D" parent="enemy"]
+[node name="Area2D" type="Area2D" parent="ketchup enemy"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="enemy/Area2D"]
-polygon = PackedVector2Array(11, 75, 9, 123, 41, 124, 33, 69, 47, 69, 50, 14, 63, 9, 32, -88, -2, -114, -36, -88, -65, 10, -51, 17, -48, 64, -34, 77, -45, 118, -11, 126, -9, 70)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ketchup enemy/Area2D"]
+position = Vector2(-2, 2)
+shape = SubResource("RectangleShape2D_b5spy")
+
+[node name="blade enemy" type="CharacterBody2D" parent="."]
+position = Vector2(2194, 511)
+script = ExtResource("9_mw25s")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="blade enemy"]
+sprite_frames = SubResource("SpriteFrames_gqftm")
+autoplay = "default"
+frame_progress = 0.670181
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blade enemy"]
+position = Vector2(-2, 31.5)
+shape = SubResource("RectangleShape2D_5dk4p")
+
+[node name="Area2D" type="Area2D" parent="blade enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blade enemy/Area2D"]
+position = Vector2(-2.5, 3.5)
+shape = SubResource("RectangleShape2D_bpk3j")
