@@ -1,15 +1,16 @@
-[gd_scene load_steps=48 format=4 uid="uid://booefivacmbno"]
+[gd_scene load_steps=49 format=4 uid="uid://booefivacmbno"]
 
 [ext_resource type="Script" uid="uid://mepkc66j8i3m" path="res://scripts/character_body_2d.gd" id="1_bw6k5"]
+[ext_resource type="Script" uid="uid://bob3griiwi3so" path="res://scripts/game_scene.gd" id="1_tcjrq"]
 [ext_resource type="Texture2D" uid="uid://dkabemfyxv0uv" path="res://sprites/Crust Carl idle animatiom.png" id="2_y3j0m"]
 [ext_resource type="Texture2D" uid="uid://bt3u3t8dwqc7l" path="res://sprites/Crust Carl Jump animation.png" id="3_y3j0m"]
-[ext_resource type="Texture2D" uid="uid://cn3hkm85iuyhw" path="res://sprites/icon.svg" id="4_kk2rg"]
 [ext_resource type="Texture2D" uid="uid://b1x2jcgn1l1xk" path="res://sprites/Crust Carl TRUE running animation.png" id="4_y3j0m"]
 [ext_resource type="Script" uid="uid://boiiii7uruttk" path="res://scripts/enemy.gd" id="6_b5spy"]
 [ext_resource type="Texture2D" uid="uid://tcortfa21xrn" path="res://sprites/ketchup monster idle.png" id="7_utbpp"]
 [ext_resource type="Texture2D" uid="uid://cusswtlnmve6x" path="res://sprites/ketchup monster walk.png" id="8_mw25s"]
 [ext_resource type="Script" uid="uid://b2p2rr5bpis6a" path="res://scripts/blade_enemy.gd" id="9_mw25s"]
 [ext_resource type="Texture2D" uid="uid://chlm2bn53ifyy" path="res://sprites/blade monster idle.png" id="10_tcjrq"]
+[ext_resource type="Texture2D" uid="uid://0s3rsi6wj66a" path="res://sprites/floor.png" id="12_rvs2r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdryc"]
 atlas = ExtResource("2_y3j0m")
@@ -141,18 +142,6 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kdryc"]
-texture = ExtResource("4_kk2rg")
-texture_region_size = Vector2i(64, 64)
-0:0/size_in_atlas = Vector2i(2, 2)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
-
-[sub_resource type="TileSet" id="TileSet_6e45b"]
-tile_size = Vector2i(128, 128)
-physics_layer_0/collision_layer = 1
-sources/2 = SubResource("TileSetAtlasSource_kdryc")
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_s76x2"]
 atlas = ExtResource("7_utbpp")
 region = Rect2(0, 0, 256, 256)
@@ -270,7 +259,29 @@ size = Vector2(110, 187)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bpk3j"]
 size = Vector2(119, 247)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tqxxy"]
+texture = ExtResource("12_rvs2r")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_5ay1a"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/3 = SubResource("TileSetAtlasSource_tqxxy")
+
 [node name="Game scene" type="Node2D"]
+script = ExtResource("1_tcjrq")
 
 [node name="Crust Carl" type="CharacterBody2D" parent="."]
 position = Vector2(200, 250)
@@ -292,13 +303,8 @@ polygon = PackedVector2Array(19, -1, 27, 10, 30, 22, 30, 26, 26, 30, 20, 30, 16,
 [node name="Camera2D" type="Camera2D" parent="Crust Carl"]
 zoom = Vector2(0.7, 0.7)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(-1, 0)
-tile_map_data = PackedByteArray("AAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAAFAAMAAgAAAAAAAAAGAAMAAgAAAAAAAAAHAAMAAgAAAAAAAAAIAAMAAgAAAAAAAAABAAMAAgAAAAAAAAAKAAUAAgAAAAAAAAALAAUAAgAAAAAAAAAMAAUAAgAAAAAAAAANAAUAAgAAAAAAAAAOAAUAAgAAAAAAAAAPAAUAAgAAAAAAAAAQAAUAAgAAAAAAAAARAAUAAgAAAAAAAAAUAAQAAgAAAAAAAAAVAAQAAgAAAAAAAAAWAAQAAgAAAAAAAAAXAAQAAgAAAAAAAAAYAAQAAgAAAAAAAAAbAAcAAgAAAAAAAAAcAAcAAgAAAAAAAAAeAAcAAgAAAAAAAAAfAAcAAgAAAAAAAAD//wcAAgAAAAAAAAD+/wcAAgAAAAAAAAD9/wcAAgAAAAAAAAD8/wcAAgAAAAAAAAAhAAcAAgAAAAAAAAAgAAcAAgAAAAAAAAAdAAcAAgAAAAAAAAA=")
-tile_set = SubResource("TileSet_6e45b")
-
 [node name="ketchup enemy" type="CharacterBody2D" parent="."]
-position = Vector2(1640, 511)
+position = Vector2(1774, 511)
 script = ExtResource("6_b5spy")
 metadata/_edit_group_ = true
 
@@ -319,7 +325,7 @@ position = Vector2(-2, 2)
 shape = SubResource("RectangleShape2D_b5spy")
 
 [node name="blade enemy" type="CharacterBody2D" parent="."]
-position = Vector2(2194, 511)
+position = Vector2(3068, 385)
 script = ExtResource("9_mw25s")
 metadata/_edit_group_ = true
 
@@ -337,3 +343,7 @@ shape = SubResource("RectangleShape2D_5dk4p")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blade enemy/Area2D"]
 position = Vector2(-2.5, 3.5)
 shape = SubResource("RectangleShape2D_bpk3j")
+
+[node name="kitchen floor" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAjAAUAAwAAAAAAAAAmAAUAAwABAAAAAAAkAAUAAwAAAAEAAAAlAAUAAwAAAAEAAAAAAAYAAwAAAAAAAAABAAYAAwAAAAIAAAACAAYAAwAAAAIAAAADAAYAAwAAAAIAAAAEAAYAAwAAAAIAAAAFAAYAAwAAAAIAAAAGAAYAAwAAAAIAAAAHAAYAAwAAAAIAAAAIAAYAAwAAAAIAAAAJAAYAAwAAAAIAAAAKAAYAAwAAAAIAAAALAAYAAwAAAAIAAAAMAAYAAwAAAAIAAAABAAcAAwABAAIAAAACAAcAAwABAAIAAAADAAcAAwABAAIAAAAEAAcAAwABAAIAAAAFAAcAAwABAAIAAAAGAAcAAwABAAIAAAAHAAcAAwABAAIAAAAIAAcAAwABAAIAAAAJAAcAAwABAAIAAAAKAAcAAwABAAIAAAALAAcAAwABAAIAAAAAAAcAAwABAAAAAAAMAAcAAwABAAEAAAA=")
+tile_set = SubResource("TileSet_5ay1a")

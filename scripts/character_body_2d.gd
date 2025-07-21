@@ -4,9 +4,10 @@ const SPEED = 800.0
 const JUMP_VELOCITY = -900.0
 
 var start_position = Vector2(200, 250)
+var jumps_done = 0
+const MAX_JUMPS = 2
 
 func _ready():
-	# Optional: Reset position at start
 	position = start_position
 
 func _physics_process(delta: float) -> void:
@@ -15,10 +16,14 @@ func _physics_process(delta: float) -> void:
 			velocity.y += get_gravity().y * delta * 20  # Fast drop
 		else:
 			velocity.y += get_gravity().y * delta * 3   # Normal gravity
+	else:
+		jumps_done = 0  # Reset jumps when on floor
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and jumps_done < MAX_JUMPS:
 		velocity.y = JUMP_VELOCITY
-		$AnimatedSprite2D.play("jump")
+		jumps_done += 1
+		$AnimatedSprite2D.frame = 0
+		$AnimatedSprite2D.play("jump") # Always play jump animation on every jump
 
 	var direction := Input.get_axis("left", "right")
 	if direction != 0:
