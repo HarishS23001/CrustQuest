@@ -3,10 +3,12 @@ extends CharacterBody2D
 const SPEED = 200.0
 const GRAVITY = 2000.0
 const CHASE_DISTANCE = 700.0 
+var start_position = Vector2(1650, 530)
 
 @onready var player = get_parent().get_node("Crust Carl")
 
 func _ready():
+	start_position = position
 	$Area2D.body_entered.connect(_on_body_entered)
 
 func _physics_process(delta):
@@ -18,6 +20,10 @@ func _physics_process(delta):
 	if player and distance_to_player < CHASE_DISTANCE:
 		var direction = (player.global_position - global_position).normalized()
 		velocity.x = direction.x * SPEED  # Only chase horizontally
+
+		# Jump if hitting a wall
+		if is_on_wall() and is_on_floor():
+			velocity.y = -800  # Adjust jump strength as needed
 
 		# Animation logic
 		if abs(velocity.x) > 10:
@@ -37,3 +43,4 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	if body.name == "Crust Carl":
 		body.position = body.start_position
+		position = start_position
