@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 1000.0
+const SPEED = 800.0
 const JUMP_VELOCITY = -1500.0
 
 var start_position = Vector2(200, 250)
@@ -13,7 +13,7 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		if Input.is_action_pressed("down"):
-			velocity.y += get_gravity().y * delta * 10
+			velocity.y += get_gravity().y * delta * 50
 		else:
 			velocity.y += get_gravity().y * delta * 5   
 	else:
