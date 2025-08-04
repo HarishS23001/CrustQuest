@@ -42,5 +42,5 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	if body.name == "Crust Carl":
-		body.position = body.start_position
+		body.die()
 		position = start_position

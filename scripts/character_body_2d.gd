@@ -7,6 +7,11 @@ var start_position = Vector2(200, 250)
 var jumps_done = 0
 const MAX_JUMPS = 2
 
+func die():
+	position = start_position
+	jumps_done = 0
+	get_parent().reset_timer()
+
 func _ready():
 	position = start_position
 
@@ -15,7 +20,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("down"):
 			velocity.y += get_gravity().y * delta * 50
 		else:
-			velocity.y += get_gravity().y * delta * 5   
+			velocity.y += get_gravity().y * delta * 5  
 	else:
 		jumps_done = 0  
 
@@ -44,5 +49,8 @@ func _physics_process(delta: float) -> void:
 
 	if position.y > 1500:
 		position = start_position
-
+		jumps_done = 0
+		get_parent().reset_timer()
+		
+		
 	move_and_slide()
