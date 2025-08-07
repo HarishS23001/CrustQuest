@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://4q45h566xca7"]
 
 [ext_resource type="FontFile" uid="uid://d37u7onymwm7a" path="res://sprites/Asap_SemiExpanded-Bold.ttf" id="1_vu4dg"]
-[ext_resource type="Script" uid="uid://cyi4im75mhars" path="res://scripts/start_screen.gd" id="1_ypiyu"]
+[ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_ypiyu"]
 [ext_resource type="FontFile" uid="uid://lbomj3hob8b6" path="res://sprites/SourGummy-VariableFont_wdth,wght.ttf" id="2_ypiyu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vu4dg"]
@@ -77,9 +77,9 @@ metadata/_edit_group_ = true
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_vu4dg")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vu4dg")
@@ -91,9 +91,9 @@ text = "Start"
 [node name="Button2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_vu4dg")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vu4dg")
@@ -105,9 +105,9 @@ text = "Exit "
 [node name="Button3" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_vu4dg")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vu4dg")
