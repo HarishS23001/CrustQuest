@@ -30,3 +30,8 @@ func _process(delta):
 func reset_timer():
 	time_elapsed = 0.0
 	$CanvasLayer/TimeLabel.text = "Time: 0.0s"
+	
+func reset_game():
+	pepperoni_count = 0
+	reset_timer()
+	get_tree().reload_current_scene()

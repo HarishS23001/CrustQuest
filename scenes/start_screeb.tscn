@@ -1,13 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://4q45h566xca7"]
+[gd_scene load_steps=9 format=3 uid="uid://4q45h566xca7"]
 
 [ext_resource type="FontFile" uid="uid://d37u7onymwm7a" path="res://sprites/Asap_SemiExpanded-Bold.ttf" id="1_vu4dg"]
 [ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_ypiyu"]
 [ext_resource type="FontFile" uid="uid://lbomj3hob8b6" path="res://sprites/SourGummy-VariableFont_wdth,wght.ttf" id="2_ypiyu"]
+[ext_resource type="FontFile" uid="uid://bc6x6okxlac4g" path="res://sprites/Yrsa-VariableFont_wght.ttf" id="4_kqdoa"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vu4dg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vu4dg"]
-bg_color = Color(0.670689, 0.67069, 0.670689, 1)
+bg_color = Color(0.594169, 0.753218, 0.899103, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
@@ -16,7 +17,7 @@ shadow_size = 5
 shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypiyu"]
-bg_color = Color(0.342207, 0.342207, 0.342207, 1)
+bg_color = Color(0.584676, 0.796691, 0.87571, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
@@ -25,7 +26,7 @@ shadow_size = 5
 shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ai107"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(0.728054, 0.933987, 0.923917, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
@@ -49,14 +50,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -311.5
-offset_top = -241.0
-offset_right = 311.5
-offset_bottom = -104.0
+offset_left = -466.5
+offset_top = -317.0
+offset_right = 466.5
+offset_bottom = -122.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.952289, 0.811363, 3.08037e-06, 1)
+theme_override_colors/font_outline_color = Color(0.801857, 0.469111, 0.0179364, 1)
+theme_override_constants/outline_size = 22
 theme_override_fonts/font = ExtResource("2_ypiyu")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 150
 text = "CRUST QUEST"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -66,10 +70,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -212.0
-offset_top = -36.0
-offset_right = 213.0
-offset_bottom = 182.0
+offset_left = -212.5
+offset_top = -52.0
+offset_right = 212.5
+offset_bottom = 136.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_group_ = true
@@ -81,7 +85,7 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_vu4dg")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 80
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vu4dg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vu4dg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ypiyu")
@@ -95,27 +99,29 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_vu4dg")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 80
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vu4dg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vu4dg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ypiyu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ai107")
 text = "Exit "
 
-[node name="Button3" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_vu4dg")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/focus = SubResource("StyleBoxEmpty_vu4dg")
-theme_override_styles/hover = SubResource("StyleBoxFlat_vu4dg")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ypiyu")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ai107")
-text = "Instructions"
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -375.0
+offset_top = -161.0
+offset_right = 380.0
+offset_bottom = -110.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_kqdoa")
+theme_override_font_sizes/font_size = 50
+text = "Tip: Double jump to get past obstacles!"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]

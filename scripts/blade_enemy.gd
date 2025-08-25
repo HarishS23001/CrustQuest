@@ -3,7 +3,7 @@ extends CharacterBody2D
 const SPEED = 200.0
 const GRAVITY = 2000.0
 const CHASE_DISTANCE = 700.0 
-var start_position = Vector2(1348, 543)
+var start_position = Vector2(1650, 530)
 
 @onready var player = get_parent().get_node("Crust Carl")
 
@@ -44,4 +44,3 @@ func _on_body_entered(body):
 	if body.name == "Crust Carl":
 		body.die()
 		position = start_position
-		

@@ -10,7 +10,7 @@ const MAX_JUMPS = 2
 func die():
 	position = start_position
 	jumps_done = 0
-	get_parent().reset_timer()
+	get_parent().reset_game()
 
 func _ready():
 	position = start_position
@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		jumps_done += 1
 		$AnimatedSprite2D.frame = 0
-		$AnimatedSprite2D.play("jump") # Always play jump animation on every jump
+		$AnimatedSprite2D.play("jump")
 
 	var direction := Input.get_axis("left", "right")
 	if direction != 0:
@@ -47,10 +47,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		$AnimatedSprite2D.play("idle")
 
-	if position.y > 1500:
-		position = start_position
-		jumps_done = 0
-		get_parent().reset_timer()
-		
+	if position.y > 1500:	
+		die()
 		
 	move_and_slide()
