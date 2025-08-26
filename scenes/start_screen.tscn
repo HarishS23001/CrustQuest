@@ -121,7 +121,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("4_kqdoa")
 theme_override_font_sizes/font_size = 50
-text = "Tip: Double jump to get past obstacles!"
+text = "Tip: Double jump to get past obstacles and enemies!"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
