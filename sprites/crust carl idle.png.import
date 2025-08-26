@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://88g40b8out2u"
-path="res://.godot/imported/bgtileswt.png-bd81085e9018fcdaecae923d0e6c5185.ctex"
+uid="uid://dkabemfyxv0uv"
+path="res://.godot/imported/crust carl idle.png-c5ef891c3c1689f0dab02b4421eef76e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/bgtileswt.png"
-dest_files=["res://.godot/imported/bgtileswt.png-bd81085e9018fcdaecae923d0e6c5185.ctex"]
+source_file="res://sprites/crust carl idle.png"
+dest_files=["res://.godot/imported/crust carl idle.png-c5ef891c3c1689f0dab02b4421eef76e.ctex"]
 
 [params]
 

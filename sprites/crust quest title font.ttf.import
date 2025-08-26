@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bc6x6okxlac4g"
-path="res://.godot/imported/Yrsa-VariableFont_wght.ttf-8374a928b86239e88272a98c027b126e.fontdata"
+uid="uid://lbomj3hob8b6"
+path="res://.godot/imported/crust quest title font.ttf-a4832bdf335fcce53c4a78dcac8c2634.fontdata"
 
 [deps]
 
-source_file="res://sprites/Yrsa-VariableFont_wght.ttf"
-dest_files=["res://.godot/imported/Yrsa-VariableFont_wght.ttf-8374a928b86239e88272a98c027b126e.fontdata"]
+source_file="res://sprites/crust quest title font.ttf"
+dest_files=["res://.godot/imported/crust quest title font.ttf-a4832bdf335fcce53c4a78dcac8c2634.fontdata"]
 
 [params]
 

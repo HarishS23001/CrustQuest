@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://lbomj3hob8b6"
-path="res://.godot/imported/SourGummy-VariableFont_wdth,wght.ttf-4293d98e49445794abf395c6d6c33b29.fontdata"
+uid="uid://d37u7onymwm7a"
+path="res://.godot/imported/normal text font.ttf-1957fcecf1b29024ee2c9f528ff295fe.fontdata"
 
 [deps]
 
-source_file="res://sprites/SourGummy-VariableFont_wdth,wght.ttf"
-dest_files=["res://.godot/imported/SourGummy-VariableFont_wdth,wght.ttf-4293d98e49445794abf395c6d6c33b29.fontdata"]
+source_file="res://sprites/normal text font.ttf"
+dest_files=["res://.godot/imported/normal text font.ttf-1957fcecf1b29024ee2c9f528ff295fe.fontdata"]
 
 [params]
 

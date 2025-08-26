@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1x2jcgn1l1xk"
-path="res://.godot/imported/Crust Carl TRUE running animation.png-c9aca40d60b9fea6166af4fca915ee65.ctex"
+uid="uid://b0caagv6637kk"
+path="res://.godot/imported/blade monster walk.png-22186e6ce12f863ade4fe75829777f65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Crust Carl TRUE running animation.png"
-dest_files=["res://.godot/imported/Crust Carl TRUE running animation.png-c9aca40d60b9fea6166af4fca915ee65.ctex"]
+source_file="res://sprites/blade monster walk.png"
+dest_files=["res://.godot/imported/blade monster walk.png-22186e6ce12f863ade4fe75829777f65.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkabemfyxv0uv"
-path="res://.godot/imported/Crust Carl idle animatiom.png-62ce3e4787737b7171bffca883ff7709.ctex"
+uid="uid://bn4ak6s2secbv"
+path="res://.godot/imported/floor tileset.png-9013272716cd9870fd1737978dbbc90b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Crust Carl idle animatiom.png"
-dest_files=["res://.godot/imported/Crust Carl idle animatiom.png-62ce3e4787737b7171bffca883ff7709.ctex"]
+source_file="res://sprites/floor tileset.png"
+dest_files=["res://.godot/imported/floor tileset.png-9013272716cd9870fd1737978dbbc90b.ctex"]
 
 [params]
 
