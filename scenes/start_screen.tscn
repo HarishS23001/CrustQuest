@@ -1,14 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://4q45h566xca7"]
+[gd_scene load_steps=12 format=4 uid="uid://4q45h566xca7"]
 
 [ext_resource type="FontFile" uid="uid://d37u7onymwm7a" path="res://sprites/normal text font.ttf" id="1_vu4dg"]
 [ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_ypiyu"]
+[ext_resource type="Texture2D" uid="uid://88g40b8out2u" path="res://sprites/background tileset.png" id="2_unbuk"]
 [ext_resource type="FontFile" uid="uid://lbomj3hob8b6" path="res://sprites/crust quest title font.ttf" id="2_ypiyu"]
-[ext_resource type="FontFile" uid="uid://bc6x6okxlac4g" path="res://sprites/proffesional ahh text.ttf" id="4_kqdoa"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wxwih"]
+texture = ExtResource("2_unbuk")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_c8urv"]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_wxwih")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vu4dg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vu4dg"]
-bg_color = Color(0.594169, 0.753218, 0.899103, 1)
+bg_color = Color(0.957213, 0.503896, 5.77569e-07, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
@@ -17,7 +26,7 @@ shadow_size = 5
 shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypiyu"]
-bg_color = Color(0.584676, 0.796691, 0.87571, 1)
+bg_color = Color(0.713273, 0.369204, 0, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
@@ -26,13 +35,28 @@ shadow_size = 5
 shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ai107"]
-bg_color = Color(0.728054, 0.933987, 0.923917, 1)
+bg_color = Color(1, 0.598994, 0.285255, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 shadow_size = 5
 shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4b1t"]
+content_margin_left = 20.0
+content_margin_right = 20.0
+bg_color = Color(0.389287, 0.389287, 0.389286, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.219501, 0.219501, 0.219501, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 20
 
 [node name="start screen" type="Control"]
 layout_mode = 3
@@ -43,24 +67,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ypiyu")
 
-[node name="Label" type="Label" parent="."]
+[node name="background tileset]" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAABcAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAABABcAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAACABcAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAADABcAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAEABcAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAFABcAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAGABcAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAHABcAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAIABcAAAAAAAAAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAUAAAAAAAAAAAAJABcAAAAAAAAAAAAKABcAAAAAAAAAAAALABcAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_c8urv")
+
+[node name="crustquest label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -466.5
-offset_top = -317.0
-offset_right = 466.5
-offset_bottom = -122.0
+offset_left = -529.0
+offset_top = -309.0
+offset_right = 529.0
+offset_bottom = -88.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.952289, 0.811363, 3.08037e-06, 1)
 theme_override_colors/font_outline_color = Color(0.801857, 0.469111, 0.0179364, 1)
-theme_override_constants/outline_size = 22
+theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("2_ypiyu")
-theme_override_font_sizes/font_size = 150
+theme_override_font_sizes/font_size = 170
 text = "CRUST QUEST"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -71,42 +99,42 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -212.5
-offset_top = -52.0
+offset_top = -62.0
 offset_right = 212.5
-offset_bottom = 136.0
+offset_bottom = 126.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_group_ = true
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.886262, 0.886261, 0.886262, 1)
+theme_override_colors/font_pressed_color = Color(0.728822, 0.728822, 0.728822, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_vu4dg")
 theme_override_font_sizes/font_size = 80
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vu4dg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vu4dg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ypiyu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ai107")
-text = "Start"
+text = "START"
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.838897, 0.838897, 0.838897, 1)
+theme_override_colors/font_pressed_color = Color(0.762404, 0.762404, 0.762404, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_vu4dg")
 theme_override_font_sizes/font_size = 80
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vu4dg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vu4dg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ypiyu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ai107")
-text = "Exit "
+text = "EXIT"
 
-[node name="Label2" type="Label" parent="."]
+[node name="tip label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -119,8 +147,9 @@ offset_right = 380.0
 offset_bottom = -110.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("4_kqdoa")
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("1_vu4dg")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_r4b1t")
 text = "Tip: Double jump to get past obstacles and enemies!"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
