@@ -32,7 +32,12 @@ corner_detail = 20
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vu4dg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vu4dg"]
-bg_color = Color(0.957213, 0.503896, 5.77569e-07, 1)
+bg_color = Color(0.920949, 0.60421, 0.348455, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.914891, 0.534047, 0.319958, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
@@ -41,7 +46,12 @@ shadow_size = 5
 shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypiyu"]
-bg_color = Color(0.713273, 0.369204, 0, 1)
+bg_color = Color(0.864849, 0.551879, 0.244956, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.746285, 0.472144, 0.23261, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
@@ -51,6 +61,11 @@ shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ai107"]
 bg_color = Color(1, 0.598994, 0.285255, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.789131, 0.49872, 0.27157, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
@@ -88,7 +103,7 @@ theme_override_colors/font_color = Color(0.952289, 0.811363, 3.08037e-06, 1)
 theme_override_colors/font_outline_color = Color(0.801857, 0.469111, 0.0179364, 1)
 theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("2_ypiyu")
-theme_override_font_sizes/font_size = 170
+theme_override_font_sizes/font_size = 190
 text = "CRUST QUEST"
 
 [node name="tip label" type="Label" parent="."]
@@ -109,49 +124,29 @@ theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxFlat_r4b1t")
 text = "Tip: Double jump to get past obstacles and enemies!"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -212.5
-offset_top = -62.0
-offset_right = 212.5
-offset_bottom = 126.0
+offset_left = -332.5
+offset_top = -59.0
+offset_right = 332.5
+offset_bottom = 114.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 0
-metadata/_edit_group_ = true
-
-[node name="Button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.886262, 0.886261, 0.886262, 1)
-theme_override_colors/font_pressed_color = Color(0.728822, 0.728822, 0.728822, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_vu4dg")
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 150
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vu4dg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vu4dg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ypiyu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ai107")
 text = "START"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.838897, 0.838897, 0.838897, 1)
-theme_override_colors/font_pressed_color = Color(0.762404, 0.762404, 0.762404, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_vu4dg")
-theme_override_font_sizes/font_size = 80
-theme_override_styles/focus = SubResource("StyleBoxEmpty_vu4dg")
-theme_override_styles/hover = SubResource("StyleBoxFlat_vu4dg")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ypiyu")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ai107")
-text = "EXIT"
-
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
