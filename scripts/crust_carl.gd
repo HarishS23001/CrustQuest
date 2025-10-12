@@ -27,6 +27,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and jumps_done < MAX_JUMPS:
 		velocity.y = JUMP_VELOCITY
 		jumps_done += 1
+		$JumpSound.play()  # 🔊 plays jump noise
 		$AnimatedSprite2D.frame = 0
 		$AnimatedSprite2D.play("jump")
 

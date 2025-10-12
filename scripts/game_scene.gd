@@ -15,6 +15,7 @@ func _input(event):
 
 func _ready():
 	update_pepperoni_label()
+	$Music.play()
 
 func update_pepperoni_label():
 	$CanvasLayer/PepperoniLabel.text = "Pepperoni: %d" % pepperoni_count
@@ -35,3 +36,7 @@ func reset_game():
 	pepperoni_count = 0
 	reset_timer()
 	get_tree().reload_current_scene()
+
+func _on_mouth_body_entered(body: Node2D) -> void:
+	if body.name == "Crust Carl":
+		get_tree().change_scene_to_file("res://scenes/victory_screen.tscn")

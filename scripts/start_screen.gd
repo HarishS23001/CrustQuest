@@ -6,7 +6,6 @@ func _on_button_pressed() -> void:
 func _on_button_2_pressed() -> void:
 	get_tree().quit()
 	
-
 func _unhandled_input(event):
 	if event.is_action_pressed("fullscreen_toggle"):
 		var current_mode = DisplayServer.window_get_mode()
@@ -15,7 +14,3 @@ func _unhandled_input(event):
 
 	if event.is_action_pressed("leave_game"):
 		get_tree().quit()
-
-
-func _on_button_3_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/instructions_scene.tscn")

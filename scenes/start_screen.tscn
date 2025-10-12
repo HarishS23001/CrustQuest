@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=4 uid="uid://4q45h566xca7"]
 
 [ext_resource type="FontFile" uid="uid://d37u7onymwm7a" path="res://sprites/normal text font.ttf" id="1_vu4dg"]
-[ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_ypiyu"]
+[ext_resource type="Script" uid="uid://cyi4im75mhars" path="res://scripts/start_screen.gd" id="1_ypiyu"]
 [ext_resource type="Texture2D" uid="uid://88g40b8out2u" path="res://sprites/background tileset.png" id="2_unbuk"]
 [ext_resource type="FontFile" uid="uid://lbomj3hob8b6" path="res://sprites/crust quest title font.ttf" id="2_ypiyu"]
 
@@ -29,15 +29,13 @@ corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 corner_detail = 20
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vu4dg"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vu4dg"]
-bg_color = Color(0.920949, 0.60421, 0.348455, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ai107"]
+bg_color = Color(1, 0.598994, 0.285255, 1)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
-border_color = Color(0.914891, 0.534047, 0.319958, 1)
+border_color = Color(0.789131, 0.49872, 0.27157, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
@@ -59,19 +57,21 @@ corner_radius_bottom_left = 30
 shadow_size = 5
 shadow_offset = Vector2(0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ai107"]
-bg_color = Color(1, 0.598994, 0.285255, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vu4dg"]
+bg_color = Color(0.920949, 0.60421, 0.348455, 1)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
-border_color = Color(0.789131, 0.49872, 0.27157, 1)
+border_color = Color(0.914891, 0.534047, 0.319958, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 shadow_size = 5
 shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vu4dg"]
 
 [node name="start screen" type="Control"]
 layout_mode = 3
@@ -137,16 +137,16 @@ offset_right = 332.5
 offset_bottom = 114.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_vu4dg")
 theme_override_font_sizes/font_size = 150
-theme_override_styles/focus = SubResource("StyleBoxEmpty_vu4dg")
-theme_override_styles/hover = SubResource("StyleBoxFlat_vu4dg")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ypiyu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ai107")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ypiyu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vu4dg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vu4dg")
 text = "START"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,26 +1,30 @@
-[gd_scene load_steps=76 format=4 uid="uid://booefivacmbno"]
+[gd_scene load_steps=83 format=4 uid="uid://booefivacmbno"]
 
-[ext_resource type="Script" path="res://scripts/crust_carl.gd" id="1_bw6k5"]
-[ext_resource type="Script" path="res://scripts/game_scene.gd" id="1_tcjrq"]
+[ext_resource type="Script" uid="uid://oqovymyi4ee" path="res://scripts/crust_carl.gd" id="1_bw6k5"]
+[ext_resource type="Script" uid="uid://bob3griiwi3so" path="res://scripts/game_scene.gd" id="1_tcjrq"]
 [ext_resource type="Texture2D" uid="uid://88g40b8out2u" path="res://sprites/background tileset.png" id="2_k0pbs"]
 [ext_resource type="Texture2D" uid="uid://dkabemfyxv0uv" path="res://sprites/crust carl idle.png" id="2_y3j0m"]
 [ext_resource type="Texture2D" uid="uid://bt3u3t8dwqc7l" path="res://sprites/crust carl jump.png" id="3_y3j0m"]
 [ext_resource type="Texture2D" uid="uid://b1x2jcgn1l1xk" path="res://sprites/crust carl run.png" id="4_y3j0m"]
-[ext_resource type="Script" path="res://scripts/ketchup_enemy.gd" id="6_b5spy"]
+[ext_resource type="Script" uid="uid://d3bkv4fnl6wu8" path="res://scripts/ketchup_enemy.gd" id="6_b5spy"]
 [ext_resource type="Texture2D" uid="uid://bylxpr8i1aanv" path="res://sprites/shelf.png" id="7_4nqf3"]
 [ext_resource type="FontFile" uid="uid://lbomj3hob8b6" path="res://sprites/crust quest title font.ttf" id="7_loqwi"]
 [ext_resource type="Texture2D" uid="uid://tcortfa21xrn" path="res://sprites/ketchup monster idle.png" id="7_utbpp"]
 [ext_resource type="Texture2D" uid="uid://cusswtlnmve6x" path="res://sprites/ketchup monster walk.png" id="8_mw25s"]
-[ext_resource type="Script" path="res://scripts/blade_enemy.gd" id="9_mw25s"]
+[ext_resource type="Script" uid="uid://b2p2rr5bpis6a" path="res://scripts/blade_enemy.gd" id="9_mw25s"]
 [ext_resource type="Texture2D" uid="uid://chlm2bn53ifyy" path="res://sprites/blade monster idle.png" id="10_tcjrq"]
 [ext_resource type="Texture2D" uid="uid://b0caagv6637kk" path="res://sprites/blade monster walk.png" id="11_rvs2r"]
 [ext_resource type="Texture2D" uid="uid://bn4ak6s2secbv" path="res://sprites/floor tileset.png" id="11_tcjrq"]
 [ext_resource type="Texture2D" uid="uid://c53667c77dpts" path="res://sprites/oven.png" id="13_5ay1a"]
-[ext_resource type="Script" path="res://scripts/oven_fire.gd" id="14_ldkr4"]
+[ext_resource type="Script" uid="uid://4xwk7x1o5oya" path="res://scripts/oven_fire.gd" id="14_ldkr4"]
 [ext_resource type="FontFile" uid="uid://d37u7onymwm7a" path="res://sprites/normal text font.ttf" id="15_6gtux"]
-[ext_resource type="Script" path="res://scripts/pepperoni.gd" id="15_liy57"]
+[ext_resource type="Script" uid="uid://btlq7ld1e4wsl" path="res://scripts/pepperoni.gd" id="15_liy57"]
 [ext_resource type="Texture2D" uid="uid://fed34jvkgt50" path="res://sprites/pepperoni.png" id="16_mwyo0"]
 [ext_resource type="Texture2D" uid="uid://cju8x3wq3vqb1" path="res://sprites/frame pizza.png" id="18_y8n1b"]
+[ext_resource type="AudioStream" uid="uid://c7aee3kycxqsy" path="res://sprites/toy-button-105724.mp3" id="22_103ce"]
+[ext_resource type="AudioStream" uid="uid://y4yvvr6ekxuw" path="res://sprites/Sakura-Girl-Yay-chosic.com_.mp3" id="23_pb36m"]
+[ext_resource type="Script" uid="uid://bxkfq4n3t2f0i" path="res://scripts/mouth.gd" id="24_xgstd"]
+[ext_resource type="Texture2D" uid="uid://deb46r2pex1oi" path="res://sprites/mouth (1).png" id="25_ttvoq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_28d7g"]
 texture = ExtResource("2_k0pbs")
@@ -57,6 +61,35 @@ texture_region_size = Vector2i(128, 128)
 tile_size = Vector2i(128, 128)
 sources/0 = SubResource("TileSetAtlasSource_g1dm5")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhpmq"]
+atlas = ExtResource("13_5ay1a")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlma2"]
+atlas = ExtResource("13_5ay1a")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfwyp"]
+atlas = ExtResource("13_5ay1a")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lm11r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhpmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlma2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfwyp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_lm11r"]
 atlas = ExtResource("16_mwyo0")
 region = Rect2(0, 0, 128, 128)
@@ -88,35 +121,6 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_twkf6"]
 radius = 16.1245
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yhpmq"]
-atlas = ExtResource("13_5ay1a")
-region = Rect2(0, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qlma2"]
-atlas = ExtResource("13_5ay1a")
-region = Rect2(256, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hfwyp"]
-atlas = ExtResource("13_5ay1a")
-region = Rect2(0, 256, 256, 256)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_lm11r"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yhpmq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qlma2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hfwyp")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 8.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s76x2"]
 atlas = ExtResource("7_utbpp")
@@ -398,6 +402,28 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_y55j0"]
+atlas = ExtResource("25_ttvoq")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twkf6"]
+atlas = ExtResource("25_ttvoq")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4fjq2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y55j0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twkf6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
 [node name="Game scene" type="Node2D"]
 script = ExtResource("1_tcjrq")
 
@@ -437,19 +463,6 @@ theme_override_fonts/font = ExtResource("7_loqwi")
 theme_override_font_sizes/font_size = 60
 text = "Time: 0.0s
 "
-
-[node name="Pepperoni5" type="Area2D" parent="."]
-position = Vector2(10691, 394)
-script = ExtResource("15_liy57")
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pepperoni5"]
-sprite_frames = SubResource("SpriteFrames_y55j0")
-animation = &"spin"
-autoplay = "spin"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pepperoni5"]
-shape = SubResource("CircleShape2D_twkf6")
 
 [node name="shelf" type="Sprite2D" parent="."]
 position = Vector2(3471, 63)
@@ -601,6 +614,19 @@ animation = &"spin"
 autoplay = "spin"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pepperoni4"]
+shape = SubResource("CircleShape2D_twkf6")
+
+[node name="Pepperoni5" type="Area2D" parent="."]
+position = Vector2(10691, 394)
+script = ExtResource("15_liy57")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pepperoni5"]
+sprite_frames = SubResource("SpriteFrames_y55j0")
+animation = &"spin"
+autoplay = "spin"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pepperoni5"]
 shape = SubResource("CircleShape2D_twkf6")
 
 [node name="Ketchup Enemy" type="CharacterBody2D" parent="."]
@@ -1211,10 +1237,28 @@ polygon = PackedVector2Array(19, -1, 27, 10, 30, 22, 30, 26, 30.7731, 30.5519, 2
 [node name="Camera2D" type="Camera2D" parent="Crust Carl"]
 zoom = Vector2(0.6, 0.6)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Crust Carl"]
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="Crust Carl"]
+stream = ExtResource("22_103ce")
+volume_db = 3.534
 
-[connection signal="body_entered" from="Pepperoni5" to="Pepperoni5" method="_on_body_entered"]
-[connection signal="collected" from="Pepperoni5" to="." method="_on_pepperoni_collected"]
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_pb36m")
+
+[node name="Mouth" type="Area2D" parent="."]
+position = Vector2(6136, 386)
+scale = Vector2(3, 3)
+script = ExtResource("24_xgstd")
+metadata/_edit_group_ = true
+
+[node name="animatedsprite2d" type="AnimatedSprite2D" parent="Mouth"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_4fjq2")
+autoplay = "default"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mouth"]
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(-33, -6, -32, 12, -29, 28, -36, 29, -41, 26, -42, 33, -34, 38, -32, 44, -38, 48, -37, 52, -28, 57, -30, 64, 46, 64, 54, 42, 64, 6, 63, -16, 53, -36, 37, -51, 15, -57, -3, -55, -19, -48, -32, -39, -35, -28, -36, -24, -41, -18, -37, -13, -38, -7)
+
 [connection signal="body_entered" from="Oven/KillZoneArea2D" to="Oven/KillZoneArea2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Oven2/KillZoneArea2D" to="Oven2/KillZoneArea2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Oven3/KillZoneArea2D" to="Oven3/KillZoneArea2D" method="_on_body_entered"]
@@ -1227,3 +1271,6 @@ zoom = Vector2(0.6, 0.6)
 [connection signal="collected" from="Pepperoni3" to="." method="_on_pepperoni_collected"]
 [connection signal="body_entered" from="Pepperoni4" to="Pepperoni4" method="_on_body_entered"]
 [connection signal="collected" from="Pepperoni4" to="." method="_on_pepperoni_collected"]
+[connection signal="body_entered" from="Pepperoni5" to="Pepperoni5" method="_on_body_entered"]
+[connection signal="collected" from="Pepperoni5" to="." method="_on_pepperoni_collected"]
+[connection signal="body_entered" from="Mouth" to="." method="_on_mouth_body_entered"]
