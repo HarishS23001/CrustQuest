@@ -14,3 +14,7 @@ func _unhandled_input(event):
 
 	if event.is_action_pressed("leave_game"):
 		get_tree().quit()
+
+func _ready():
+	$CanvasLayer/PepperoniLabel.text = "Pepperoni: %d" % Global.pepperoni_collected
+	$CanvasLayer/TimeLabel.text = "Time: %.1fs" % Global.time_elapsed

@@ -23,6 +23,7 @@ func update_pepperoni_label():
 func _on_pepperoni_collected():
 	pepperoni_count += 1
 	update_pepperoni_label()
+	Global.pepperoni_collected = pepperoni_count
 
 func _process(delta):
 	time_elapsed += delta
@@ -35,8 +36,16 @@ func reset_timer():
 func reset_game():
 	pepperoni_count = 0
 	reset_timer()
-	get_tree().reload_current_scene()
+	update_pepperoni_label()
+	var player = $"Crust Carl"
+	player.position = player.start_position
+	player.velocity = Vector2.ZERO
+	player.jumps_done = 0
+	for pepperoni in get_tree().get_nodes_in_group("pepperoni"):
+		pepperoni.show()
 
 func _on_mouth_body_entered(body: Node2D) -> void:
 	if body.name == "Crust Carl":
+		Global.pepperoni_collected = pepperoni_count
+		Global.time_elapsed = time_elapsed
 		get_tree().change_scene_to_file("res://scenes/victory_screen.tscn")

@@ -5,14 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://88g40b8out2u" path="res://sprites/background tileset.png" id="2_unbuk"]
 [ext_resource type="FontFile" uid="uid://lbomj3hob8b6" path="res://sprites/crust quest title font.ttf" id="2_ypiyu"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wxwih"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r2jwc"]
 texture = ExtResource("2_unbuk")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_c8urv"]
 tile_size = Vector2i(128, 128)
-sources/0 = SubResource("TileSetAtlasSource_wxwih")
+sources/0 = SubResource("TileSetAtlasSource_r2jwc")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4b1t"]
 content_margin_left = 20.0

@@ -14,3 +14,4 @@ func _unhandled_input(event):
 
 	if event.is_action_pressed("leave_game"):
 		get_tree().quit()
+		
