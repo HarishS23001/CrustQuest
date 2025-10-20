@@ -16,6 +16,12 @@ func _input(event):
 func _ready():
 	update_pepperoni_label()
 	$Music.play()
+	connect_pepperonis()
+
+func connect_pepperonis():
+	for pepperoni in get_tree().get_nodes_in_group("pepperoni"):
+		if not pepperoni.is_connected("collected", Callable(self, "_on_pepperoni_collected")):
+			pepperoni.collected.connect(Callable(self, "_on_pepperoni_collected"))
 
 func update_pepperoni_label():
 	$CanvasLayer/PepperoniLabel.text = "Pepperoni: %d" % pepperoni_count
@@ -37,12 +43,15 @@ func reset_game():
 	pepperoni_count = 0
 	reset_timer()
 	update_pepperoni_label()
+	
 	var player = $"Crust Carl"
 	player.position = player.start_position
 	player.velocity = Vector2.ZERO
 	player.jumps_done = 0
+	
 	for pepperoni in get_tree().get_nodes_in_group("pepperoni"):
-		pepperoni.show()
+		pepperoni.respawn()
+	connect_pepperonis() # reconnect signals after respawn
 
 func _on_mouth_body_entered(body: Node2D) -> void:
 	if body.name == "Crust Carl":
